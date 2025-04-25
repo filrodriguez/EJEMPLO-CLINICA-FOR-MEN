@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clínica Urologo-Pediátrica</title>
+  <style>
+    :root {
+      --primary: #4a90e2;
+      --secondary: #e6f0fa;
+      --bg: #f7f9fc;
+      --text: #333;
+      --card: #ffffff;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem 0.5rem;
+      background-color: var(--primary);
+      color: white;
+    }
+
+    header h1 {
+      margin-bottom: 1rem;
+    }
+
+    .cover-img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 1rem;
+    }
+
+    .card {
+      background-color: var(--card);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 8px var(--shadow);
+      margin: 1rem 0;
+    }
+
+    .accordion-button {
+      background-color: var(--secondary);
+      border: none;
+      padding: 1rem;
+      width: 100%;
+      text-align: left;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    .accordion-content {
+      display: none;
+      padding: 1rem;
+      background: #fff;
+      border-left: 3px solid var(--primary);
+      margin-bottom: 1rem;
+      border-radius: 0 0 0.5rem 0.5rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, select, textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 1rem;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #357ABD;
+    }
+
+    .success-message {
+      color: green;
+      font-weight: bold;
+      margin-top: 1rem;
+      display: none;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Clínica Urologo-Pediátrica</h1>
+    <img class="cover-img" src="https://www.origensalud.com/wp-content/uploads/2023/11/Movember.-El-Mes-de-la-Salud-Masculina.png" alt="Portada Salud Masculina">
+  </header>
+
+  <div class="container">
+    <!-- Información institucional -->
+    <div class="card">
+      <h2>¿Quiénes somos?</h2>
+      <p>Clínica enfocada en salud del hombre, obstétrica y pediátrica. Brindamos atención con calidez, ética profesional y trato humano, especialmente a hombres, infancias y familias.</p>
+    </div>
+
+    <div class="card">
+      <h2>Misión</h2>
+      <p>Brindar atención médica especializada, accesible y con enfoque integral a hombres e infancias.</p>
+    </div>
+
+    <div class="card">
+      <h2>Visión</h2>
+      <p>Ser un referente en salud masculina e infantil, por nuestra excelencia médica, cercanía y compromiso con la comunidad.</p>
+    </div>
+
+    <div class="card">
+      <h2>Valores</h2>
+      <ul>
+        <li>Ética profesional</li>
+        <li>Empatía</li>
+        <li>Diversidad</li>
+        <li>Honestidad</li>
+        <li>Responsabilidad</li>
+        <li>Enfoque de género y niñez</li>
+      </ul>
+    </div>
+
+    <!-- Especialidades -->
+    <div class="card">
+      <h2>Especialidades Médicas</h2>
+
+      <button class="accordion-button">👩‍⚕️ Urología</button>
+      <div class="accordion-content">
+        Salud reproductiva, planificación familiar, anticoncepción, chequeos.
+      </div>
+
+      <button class="accordion-button">👶 Pediatría</button>
+      <div class="accordion-content">
+        Control del desarrollo infantil, vacunas, revisiones, prevención de enfermedades y orientación para madres/padres.
+      </div>
+
+      <button class="accordion-button">🩺 Medicina General</button>
+      <div class="accordion-content">
+        Valoración inicial, seguimiento a condiciones generales de salud, chequeos básicos y canalización a especialidades.
+      </div>
+    </div>
+
+    <!-- Formulario de agendamiento -->
+    <div class="card">
+      <h2>Agendar cita</h2>
+      <form id="citaForm">
+        <input type="text" name="Nombre completo" placeholder="Nombre completo" required>
+        <input type="tel" name="Teléfono" placeholder="Teléfono" required>
+        <input type="email" name="Correo electrónico" placeholder="Correo electrónico" required>
+        <select name="Sexo" required>
+          <option value="">Seleccione sexo</option>
+          <option>Femenino</option>
+          <option>Masculino</option>
+          <option>Otro</option>
+        </select>
+        <select name="Especialidad" required>
+          <option value="">Seleccione especialidad</option>
+          <option>Urología</option>
+          <option>Pediatría</option>
+          <option>Medicina General</option>
+        </select>
+        <input type="date" name="Fecha" required>
+        <input type="time" name="Hora" required>
+        <textarea name="Comentarios adicionales" rows="3" placeholder="Comentarios adicionales"></textarea>
+        <button type="submit">Agendar cita</button>
+        <div class="success-message" id="successMsg">👍 Gracias, tu cita ha sido agendada. ⏳ Redirigiendo al inicio... 🎉 Te contactaremos pronto.</div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Acordeón
+    document.querySelectorAll('.accordion-button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+
+    // Envío del formulario
+    const form = document.getElementById('citaForm');
+    const successMsg = document.getElementById('successMsg');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      try {
+        const res = await fetch('https://script.google.com/macros/s/AKfycbx1kGe6VdGCO1WcSc7oDYXUKvjPOXPVNrwbJPWe9Ry14QKa30tXCclJz0jGOtisGmLshQ/exec', {
+          method: 'POST',
+          body: formData
+        });
+
+        if (res.ok) {
+          successMsg.style.display = 'block';
+          form.reset();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          setTimeout(() => successMsg.style.display = 'none', 5000);
+        }
+      } catch (err) {
+        alert('Hubo un error al enviar la cita. Intenta nuevamente.');
+      }
+    });
+  </script>
+
+</body>
+</html>
